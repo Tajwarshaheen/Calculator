@@ -1,0 +1,6 @@
+{
+  "name": "Taju Calculator",
+  "description": "Precision basic and scientific Android calculator with offline expression evaluation, local history, memory registers, and luxury navy-and-gold dark and light themes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
