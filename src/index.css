@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus_jakarta_sans.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains_mono.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Champagne Light Theme */
+  --taju-bg: #f3f6fb;
+  --taju-bg-gradient-top: #e3ecf7;
+  --taju-surface: rgba(255, 255, 255, 0.94);
+  --taju-surface-elevated: rgba(231, 238, 246, 0.96);
+  --taju-border: rgba(7, 17, 31, 0.12);
+  --taju-text: #07111f;
+  --taju-muted: #536982;
+  --taju-gold: #b38a3c;
+  --taju-gold-bright: #c89f51;
+  --taju-gold-deep: #9a7836;
+  --taju-gold-border: rgba(179, 138, 60, 0.4);
+  --taju-key-digit-top: #ffffff;
+  --taju-key-digit-bottom: rgba(255, 255, 255, 0.88);
+  --taju-key-digit-border: rgba(7, 17, 31, 0.095);
+  --taju-key-operator-top: rgba(1, 49, 70, 0.95);
+  --taju-key-operator-bottom: rgba(1, 49, 70, 0.78);
+  --taju-key-operator-border: rgba(1, 49, 70, 0.2);
+  --taju-key-function-top: #e9eff7;
+  --taju-key-function-bottom: rgba(233, 239, 247, 0.85);
+  --taju-key-action-top: #f6efe0;
+  --taju-key-action-bottom: rgba(246, 239, 224, 0.85);
+  --taju-key-action-text: #8c6621;
+  --taju-error-surface: rgba(211, 47, 47, 0.1);
+  --taju-error-text: #d32f2f;
+}
+
+.dark {
+  /* Luxury Navy & Gold Dark Theme */
+  --taju-bg: #07111f;
+  --taju-bg-gradient-top: rgba(1, 49, 70, 0.34);
+  --taju-surface: rgba(12, 27, 48, 0.88);
+  --taju-surface-elevated: rgba(18, 37, 64, 0.92);
+  --taju-border: rgba(255, 255, 255, 0.18);
+  --taju-text: #ffffff;
+  --taju-muted: #98aec9;
+  --taju-gold: #c19a50;
+  --taju-gold-bright: #dfb96e;
+  --taju-gold-deep: #9a7836;
+  --taju-gold-border: rgba(193, 154, 80, 0.34);
+  --taju-key-digit-top: #10223a;
+  --taju-key-digit-bottom: rgba(16, 34, 58, 0.88);
+  --taju-key-digit-border: rgba(255, 255, 255, 0.15);
+  --taju-key-operator-top: rgba(1, 49, 70, 0.95);
+  --taju-key-operator-bottom: rgba(1, 49, 70, 0.78);
+  --taju-key-operator-border: rgba(76, 168, 206, 0.3);
+  --taju-key-function-top: #0d2036;
+  --taju-key-function-bottom: rgba(13, 32, 54, 0.85);
+  --taju-key-action-top: #1a2a42;
+  --taju-key-action-bottom: rgba(26, 42, 66, 0.85);
+  --taju-key-action-text: #e7c582;
+  --taju-error-surface: rgba(255, 107, 107, 0.16);
+  --taju-error-text: #ff6b6b;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    font-family: var(--font-body);
+    background-color: var(--taju-bg);
+    color: var(--taju-text);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.taju-backdrop {
+  background: linear-gradient(
+    180deg,
+    var(--taju-bg-gradient-top) 0%,
+    var(--taju-bg) 36%,
+    var(--taju-bg) 100%
+  );
+}
+
+@keyframes taju-spin-ring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-taju-ring {
+  animation: taju-spin-ring 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-taju-ring {
+    animation: none;
+  }
+}
+
+/* Subtle custom scrollbar for expression and history lists */
+.taju-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+}
+.taju-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.taju-scroll::-webkit-scrollbar-thumb {
+  background: rgba(152, 174, 201, 0.28);
+  border-radius: 9999px;
+}
